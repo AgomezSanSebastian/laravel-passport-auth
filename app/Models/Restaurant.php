@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class restaurant extends Model
+class Restaurant extends Model
 {
     use HasFactory;
+
+    // Establecemos la tabla asociada al modelo. No sería necesario al seguir la convención
+   protected $table = 'restaurants';
 
     protected $fillable = [
         'name',
@@ -24,14 +27,6 @@ class restaurant extends Model
         return $this->hasMany(Food::class);
     }
 
-    /**
-     * Get the user that owns the restaurant
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    
 
 }
